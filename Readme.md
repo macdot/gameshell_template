@@ -16,76 +16,76 @@ Quick overview:
 
 #### Option 1 - global installation
 
-    GameShell runs on Debian Linux. Right now, Debian uses Python 3.5, and Arcade
-    requires 3.6. So to install 3.6, we need to tell Debian to look at the "testing"
-    set of files.
+GameShell runs on Debian Linux. Right now, Debian uses Python 3.5, and Arcade
+requires 3.6. So to install 3.6, we need to tell Debian to look at the "testing"
+set of files.
 
-    Shell over to your GameShell, and copy/paste the following:
+Shell over to your GameShell, and copy/paste the following:
 
-    ```bash
-    echo "deb http://ftp.fr.debian.org/debian testing main" | sudo tee -a /etc/apt/sources.list
-    echo 'APT::Default-Release "stable";' | sudo tee -a /etc/apt/apt.conf.d/00local
-    sudo apt-get update
-    sudo apt-get -t testing install -y python3.6
-    ```
+```bash
+echo "deb http://ftp.fr.debian.org/debian testing main" | sudo tee -a /etc/apt/sources.list
+echo 'APT::Default-Release "stable";' | sudo tee -a /etc/apt/apt.conf.d/00local
+sudo apt-get update
+sudo apt-get -t testing install -y python3.6
+```
 
 #### Option 2 - alternative installation, with use of virtual environments
 
-    ```bash
-    mkdir -p ~/ini/python
-    cd ~/ini/python
-    wget https://www.python.org/ftp/python/3.6.9/Python-3.6.9.tgz
-    tar fxz Python-3.6.9.tgz
-    cd Python-3.6.9
-    ./configure         # or ./configure --enable-optimizations
-    make -j 4
-    sudo make altinstall
-    ```
+```bash
+mkdir -p ~/ini/python
+cd ~/ini/python
+wget https://www.python.org/ftp/python/3.6.9/Python-3.6.9.tgz
+tar fxz Python-3.6.9.tgz
+cd Python-3.6.9
+./configure         # or ./configure --enable-optimizations
+make -j 4
+sudo make altinstall
+```
 
-Clone Game
-----------
+
+### Clone Game
 
 Now clone/grab the code from GitHub and setup virtual environment for Python and Arcade
     
-    ```
-    cd ~/games
-    git clone https://github.com/pvcraven/gameshell_template.git
-    python3.6 -m venv venv
-    source venv/bin/activate && pip install -r requirements.txt
-    ```
+```bash
+cd ~/games
+git clone https://github.com/pvcraven/gameshell_template.git
+python3.6 -m venv venv
+source venv/bin/activate && pip install -r requirements.txt
+```
 
-Install the Game
-----------------
+
+### Install the Game
 
 Now we have the code installed, but there is not a link to it from the menu.
 Run this command to copy over the link:
 
-.. code-block:: bash
+```bash
+cd ~/games/gameshell_template
+chmod u+x install.sh
+./install.sh
+```
 
-    cd ~/games/gameshell_template
-    chmod u+x install.sh
-    ./install.sh
 
-Reboot
-------
+### Reload UI
 
-We installed the link. We need to reboot the device to re-look at the links.
+To make your launcher icon available on GS, run 'Reload UI' option
 
-.. code-block:: bash
 
-    sudo reboot
-
-Update The Code
----------------
+### Update The Code
 
 Something new on GitHub you want to pull down?
 
 You can update the code with:
 
-.. code-block:: bash
-
+    ```
     cd ~/games/gameshell_tempate
     git pull
+    ```
 
-.. _GameShell: https://www.clockworkpi.com/
-.. _Arcade: http://arcade.academy/
+
+### Links
+
+[GameShell](https://www.clockworkpi.com)
+
+[Arcade](http://arcade.academy)
