@@ -1,3 +1,5 @@
 #!/bin/bash
 
-python3.6 ~/games/gameshell_template/src/my_arcade_game.py
+cd ~/games/gameshell_template
+source venv/bin/activate
+python src/my_arcade_game.py
