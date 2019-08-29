@@ -1,55 +1,58 @@
-Python Arcade Game Template For GameShell
-=========================================
+## Python Arcade Game Template For GameShell
 
-.. image:: doc/screenshot.png
-    :width: 320px
+	![screenshot]i(doc/screenshot.png)
 
 These are instructions on how to get a Python game using the Arcade_ library
 working with the GameShell_.
 
 Quick overview:
 
-* Install Python 3.6
-* Install the Arcade library
-* Clone the game from GitHub
-* Install link to menu
-* Restart
+- Install Python 3.6
+- Clone the game from GitHub
+- Install link to menu
+- Restart
 
-Install Python 3.6
-------------------
+### Install Python 3.6
 
-GameShell runs on Debian Linux. Right now, Debian uses Python 3.5, and Arcade
-requires 3.6. So to install 3.6, we need to tell Debian to look at the "testing"
-set of files.
+#### Option 1 - global installation
 
-Shell over to your GameShell, and copy/paste the following:
+    GameShell runs on Debian Linux. Right now, Debian uses Python 3.5, and Arcade
+    requires 3.6. So to install 3.6, we need to tell Debian to look at the "testing"
+    set of files.
 
-.. code-block:: bash
+    Shell over to your GameShell, and copy/paste the following:
 
+    ```bash
     echo "deb http://ftp.fr.debian.org/debian testing main" | sudo tee -a /etc/apt/sources.list
     echo 'APT::Default-Release "stable";' | sudo tee -a /etc/apt/apt.conf.d/00local
     sudo apt-get update
     sudo apt-get -t testing install -y python3.6
+    ```
 
+#### Option 2 - alternative installation, with use of virtual environments
 
-Install Arcade
---------------
-
-Now that we have Python 3.6, we need to install the Arcade library. Do that with:
-
-.. code-block:: bash
-
-    python3.6 -m pip install arcade
+    ```bash
+    mkdir -p ~/ini/python
+    cd ~/ini/python
+    wget https://www.python.org/ftp/python/3.6.9/Python-3.6.9.tgz
+    tar fxz Python-3.6.9.tgz
+    cd Python-3.6.9
+    ./configure         # or ./configure --enable-optimizations
+    make -j 4
+    sudo make altinstall
+    ```
 
 Clone Game
 ----------
 
-Now clone/grab the code from GitHub:
-
-.. code-block:: bash
-
+Now clone/grab the code from GitHub and setup virtual environment for Python and Arcade
+    
+    ```
     cd ~/games
     git clone https://github.com/pvcraven/gameshell_template.git
+    python3.6 -m venv venv
+    source venv/bin/activate && pip install -r requirements.txt
+    ```
 
 Install the Game
 ----------------
