@@ -78,10 +78,10 @@ Something new on GitHub you want to pull down?
 
 You can update the code with:
 
-    ```
-    cd ~/games/gameshell_tempate
-    git pull
-    ```
+```
+cd ~/games/gameshell_tempate
+git pull
+```
 
 
 ### Links
